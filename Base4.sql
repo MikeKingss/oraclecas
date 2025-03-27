@@ -165,6 +165,7 @@ order by SALARIO;
 --Por supuesto, Tambien podemos filtrar los datos. Ejemplo:
 --Mostrar los datos de las personas que cobren menos de 300.000
 --CADA WHERE ES INDEPENDIENTE A SU CONSULTA.
+--CADA FILTRO ES AFECTADO A CADA UNA DE LAS CONSULTAS.
 SELECT APELLIDO, OFICIO, SALARIO FROM EMP
 UNION
 SELECT APELLIDO, FUNCION, SALARIO FROM PLANTILLA
@@ -172,3 +173,9 @@ UNION
 SELECT Apellido, especialidad, salario from Doctor
 where salario < 300000
 ORDER BY 1;
+
+----Union elimina automaticamente los resultados repetidos.
+----Si queremos los repetidos se utiliza union all
+select apellido, oficio from emp
+union all
+select apellido, oficio from emp;
